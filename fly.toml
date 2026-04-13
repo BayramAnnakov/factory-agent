@@ -1,0 +1,23 @@
+# fly.io deployment config
+# Rename `app` to your own app name, then deploy with `fly deploy`.
+# Set secrets via `fly secrets set KEY=value` (see .env.example for the list).
+
+app = 'factory-agent'
+primary_region = 'sjc'
+
+[build]
+
+[http_service]
+  internal_port = 3457
+  force_https = true
+  auto_stop_machines = 'stop'
+  auto_start_machines = true
+  min_machines_running = 0
+
+[checks]
+  [checks.health]
+    port = 3457
+    type = "http"
+    interval = "30s"
+    timeout = "5s"
+    path = "/health"
