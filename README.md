@@ -10,7 +10,7 @@ Linear ticket → webhook → Claude Managed Agents sandbox → GitHub PR
 
 1. You create a Linear issue and delegate it to "Factory Agent"
 2. A webhook fires to this server
-3. The server spawns a [Claude Managed Agent](https://docs.claude.com/en/docs/agents-and-tools/agent-sdk) session in an isolated Anthropic sandbox (container with bash, file tools, Chromium, GitHub CLI, unrestricted network)
+3. The server spawns a [Claude Managed Agent](https://platform.claude.com/docs/en/managed-agents/overview) session in an isolated Anthropic sandbox (container with bash, file tools, Chromium, GitHub CLI, unrestricted network)
 4. The agent clones your repo, reads `CLAUDE.md` / `README.md` for conventions, implements the feature, browser-tests it with Puppeteer, commits evidence screenshots, pushes a branch, and opens a PR
 5. Progress streams back to Linear as agent activities; the issue moves to Done with the PR link
 
